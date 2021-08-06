@@ -7,7 +7,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "release": "standard-version"
+    "release": "standard-version",
+    "commit": "cz"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.5",
