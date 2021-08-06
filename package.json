@@ -23,7 +23,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
     "standard-version": "^9.3.1"
   },
-  "private": true
+  "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
