@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/StephanJ98/SCTenis/compare/v0.0.5...v1.1.0) (2021-08-07)
+
+
+### Features
+
+* **mainscreen.js:** :rocket: Logic for the rules of the game ([3f97ffe](https://github.com/StephanJ98/SCTenis/commit/3f97ffe70571e59df19bbbcf04fede193720a5b2))
+
+
+### Bug Fixes
+
+* **mainscreen.js:** fix issue [#1](https://github.com/StephanJ98/SCTenis/issues/1) ([1f041a8](https://github.com/StephanJ98/SCTenis/commit/1f041a8319aec0de5b456b8346f8a65e74fa2d4f))
+
 ### [0.0.5](https://github.com/StephanJ98/SCTenis/compare/v0.0.4...v0.0.5) (2021-08-06)
 
 
