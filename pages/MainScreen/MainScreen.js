@@ -15,6 +15,12 @@ export default function MainScreen() {
         setSet1(0)
     }
 
+    /*useEffect(() => {
+        if (score0 == score1 && score0 != 0) {
+            setScore1('Par')
+        }
+    }, [score0, score1])*/
+
     useEffect(() => {
         if (set0 == 3) {
             reset()
@@ -33,12 +39,21 @@ export default function MainScreen() {
         switch (score0) {
             case 0:
                 setScore0(15)
+                if (score1 == 15) {
+                    setScore1('Par')
+                }
                 break;
             case 15:
                 setScore0(30)
+                if (score1 == 30) {
+                    setScore1('Par')
+                }
                 break;
             case 30:
                 setScore0(40)
+                if (score1 == 40) {
+                    setScore1('Par')
+                }
                 break;
             case 40:
                 if (score1 == 40) {
@@ -68,12 +83,21 @@ export default function MainScreen() {
         switch (score1) {
             case 0:
                 setScore1(15)
+                if (score0 == 15) {
+                    setScore1('Par')
+                }
                 break;
             case 15:
                 setScore1(30)
+                if (score0 == 30) {
+                    setScore1('Par')
+                }
                 break;
             case 30:
                 setScore1(40)
+                if (score0 == 40) {
+                    setScore1('Par')
+                }
                 break;
             case 40:
                 if (score0 == 40) {
@@ -88,6 +112,28 @@ export default function MainScreen() {
                 setScore0(0)
                 setScore1(0)
                 setSet1(set1 + 1)
+                break;
+            case 'Par':
+                switch (score0) {
+                    case 15:
+                        setScore1(30)
+                        break;
+                    case 30:
+                        setScore1(40)
+                        break;
+                    case 40:
+                        if (score0 < 40) {
+                            setScore0(0)
+                            setScore1(0)
+                            setSet1(set1 + 1)
+                        } else {
+                            setScore1('Avantage')
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;
