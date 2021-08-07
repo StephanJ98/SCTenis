@@ -45,17 +45,31 @@ export default function MainScreen() {
                 break;
             case 15:
                 setScore0(30)
+                if (score1 == 'Par') {
+                    setScore1(15)
+                }
                 if (score1 == 30) {
                     setScore1('Par')
                 }
                 break;
             case 30:
                 setScore0(40)
+                if (score1 == 'Par') {
+                    setScore1(30)
+                }
                 if (score1 == 40) {
                     setScore1('Par')
                 }
                 break;
             case 40:
+                if (score1 == 'Par') {
+                    setScore1(40)
+                    setScore0('Avantage')
+                } else if (score1 < 40) {
+                    setScore0(0)
+                    setScore1(0)
+                    setSet0(set0 + 1)
+                }
                 if (score1 == 40) {
                     setScore0('Avantage')
                 } else if (score1 < 40) {
