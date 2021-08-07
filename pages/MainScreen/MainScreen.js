@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Pressable } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Alert } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 
 export default function MainScreen() {
@@ -15,12 +15,6 @@ export default function MainScreen() {
         setSet1(0)
     }
 
-    /*useEffect(() => {
-        if (score0 == score1 && score0 != 0) {
-            setScore1('Par')
-        }
-    }, [score0, score1])*/
-
     useEffect(() => {
         if (set0 == 3) {
             reset()
@@ -34,6 +28,19 @@ export default function MainScreen() {
             setScore1('Win')
         }
     }, [set1])
+
+    useEffect(() => {
+        if (set0 == 2 && set1 == 2) {
+            Alert.alert(
+                '',
+                'Non me toquedes os collons estou traballando en eso',
+                [
+                    { text: 'OK', onPress: () => console.log('OK Pressed') }
+                ],
+                { cancelable: false }
+            )
+        }
+    }, [set0, set1])
 
     const win0 = () => {
         switch (score0) {
@@ -69,18 +76,14 @@ export default function MainScreen() {
                     setScore0(0)
                     setScore1(0)
                     setSet0(set0 + 1)
-                }
-                if (score1 == 40) {
+                } else if (score1 == 40) {
                     setScore0('Avantage')
-                } else if (score1 < 40) {
+                } else if (score0 == 'Avantage') {
                     setScore0(0)
                     setScore1(0)
                     setSet0(set0 + 1)
-                }
-                if (score0 == 'Avantage') {
-                    setScore0(0)
-                    setScore1(0)
-                    setSet0(set0 + 1)
+                } else if (score1 == 'Avantage') {
+                    setScore1('Par')
                 }
                 break;
             case 'Avantage':
@@ -120,6 +123,9 @@ export default function MainScreen() {
                     setScore0(0)
                     setScore1(0)
                     setSet1(set1 + 1)
+                } else if (score0 == 'Avantage') {
+                    setScore0(40)
+                    setScore1('Par')
                 }
                 break;
             case 'Avantage':
@@ -181,9 +187,9 @@ export default function MainScreen() {
             </Pressable>
 
             {/* Modify and Reset buttons */}
-            <Pressable style={{ ...styles.btn, ...{ 'left': '5%' } }}>
+            {/*<Pressable style={{ ...styles.btn, ...{ 'left': '5%' } }}>
                 <Text style={styles.text}>Modify Score</Text>
-            </Pressable>
+            </Pressable>*/}
             <Pressable style={{ ...styles.btn, ...{ 'right': '5%' } }} onPress={() => reset()}>
                 <Text style={styles.text}>Reset</Text>
             </Pressable>
