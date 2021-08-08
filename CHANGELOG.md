@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/StephanJ98/SCTenis/compare/v1.1.0-alpha...v1.2.0) (2021-08-08)
+
+
+### Features
+
+* **mainscreen.js:** implementation of the logic for the fase of tiebreak ([cba3662](https://github.com/StephanJ98/SCTenis/commit/cba3662752596044990742634aacb6a96fd2d423))
+
+
+### Bug Fixes
+
+* **mainscreen.js:** fix the Avantage score bug ([3cab1ae](https://github.com/StephanJ98/SCTenis/commit/3cab1ae2705df63872dff5f35ce0a4b2343fd61e)), closes [#2](https://github.com/StephanJ98/SCTenis/issues/2)
+
 ## [1.1.0](https://github.com/StephanJ98/SCTenis/compare/v0.0.5...v1.1.0) (2021-08-07)
 
 
