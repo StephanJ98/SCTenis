@@ -7,6 +7,10 @@ export default function MainScreen() {
     const [score1, setScore1] = useState(0)
     const [set0, setSet0] = useState(0)
     const [set1, setSet1] = useState(0)
+    const [tie0, setTie0] = useState(0)
+    const [tie1, setTie1] = useState(0)
+
+    const [showTiebreak, setShowTiebreak] = useState(true)
 
     const reset = () => {
         setScore0(0)
@@ -15,32 +19,44 @@ export default function MainScreen() {
         setSet1(0)
     }
 
-    useEffect(() => {
-        if (set0 == 3) {
-            reset()
-            setScore0('Win')
-        }
-    }, [set0])
-
-    useEffect(() => {
-        if (set1 == 3) {
-            reset()
-            setScore1('Win')
-        }
-    }, [set1])
+    const resetAndRollBack = () => {
+        reset()
+        setTie0(0)
+        setTie1(0)
+        setShowTiebreak(true)
+    }
 
     useEffect(() => {
         if (set0 == 2 && set1 == 2) {
             Alert.alert(
+                'TieBreak Escoces',
                 '',
-                'Non me toquedes os collons estou traballando en eso',
                 [
-                    { text: 'OK', onPress: () => console.log('OK Pressed') }
+                    { text: 'OK', onPress: () => setShowTiebreak(false) }
                 ],
                 { cancelable: false }
             )
         }
+        if (set0 == 3) {
+            reset()
+            setScore0('Win')
+        }
+        if (set1 == 3) {
+            reset()
+            setScore1('Win')
+        }
     }, [set0, set1])
+
+    useEffect(() => {
+        if (tie0 >= 7 && tie0 >= (tie1 + 2)) {
+            resetAndRollBack()
+            setScore0('Win')
+        }
+        if (tie1 >= 7 && tie1 >= (tie0 + 2)) {
+            resetAndRollBack()
+            setScore1('Win')
+        }
+    }, [tie0, tie1])
 
     const win0 = () => {
         switch (score0) {
@@ -161,39 +177,62 @@ export default function MainScreen() {
     }
 
     return (
-        <View style={styles.container}>
-            <StatusBar style="auto" />
+        showTiebreak ?
+            <View style={styles.container}>
+                <StatusBar style="auto" />
 
-            {/* Scores and sets */}
-            <View style={{ ...styles.score, ...{ 'left': '5%' } }}>
-                <Text style={styles.text}>{score0}</Text>
-            </View>
-            <View style={{ ...styles.score, ...{ 'right': '5%' } }}>
-                <Text style={styles.text}>{score1}</Text>
-            </View>
-            <View style={{ ...styles.set, ...{ 'left': '37%' } }}>
-                <Text style={styles.text}>{set0}</Text>
-            </View>
-            <View style={{ ...styles.set, ...{ 'right': '37%' } }}>
-                <Text style={styles.text}>{set1}</Text>
-            </View>
+                {/* Scores and sets */}
+                <View style={{ ...styles.score, ...{ 'left': '5%' } }}>
+                    <Text style={styles.text}>{score0}</Text>
+                </View>
+                <View style={{ ...styles.score, ...{ 'right': '5%' } }}>
+                    <Text style={styles.text}>{score1}</Text>
+                </View>
+                <View style={{ ...styles.set, ...{ 'left': '37%' } }}>
+                    <Text style={styles.text}>{set0}</Text>
+                </View>
+                <View style={{ ...styles.set, ...{ 'right': '37%' } }}>
+                    <Text style={styles.text}>{set1}</Text>
+                </View>
 
-            {/* Win buttons */}
-            <Pressable style={{ ...styles.winBtn, ...{ 'left': '5%' } }} onPress={() => win0()}>
-                <Text style={styles.text}>Win</Text>
-            </Pressable>
-            <Pressable style={{ ...styles.winBtn, ...{ 'right': '5%' } }} onPress={() => win1()}>
-                <Text style={styles.text}>Win</Text>
-            </Pressable>
+                {/* Win buttons */}
+                <Pressable style={{ ...styles.winBtn, ...{ 'left': '5%' } }} onPress={() => win0()}>
+                    <Text style={styles.text}>Win</Text>
+                </Pressable>
+                <Pressable style={{ ...styles.winBtn, ...{ 'right': '5%' } }} onPress={() => win1()}>
+                    <Text style={styles.text}>Win</Text>
+                </Pressable>
 
-            {/* Modify and Reset buttons */}
-            {/*<Pressable style={{ ...styles.btn, ...{ 'left': '5%' } }}>
-                <Text style={styles.text}>Modify Score</Text>
-            </Pressable>*/}
-            <Pressable style={{ ...styles.btn, ...{ 'right': '5%' } }} onPress={() => reset()}>
-                <Text style={styles.text}>Reset</Text>
-            </Pressable>
-        </View>
+                {/* Reset button */}
+                <Pressable style={styles.btn} onPress={() => reset()}>
+                    <Text style={styles.text}>Reset</Text>
+                </Pressable>
+            </View>
+            :
+            <View style={styles.container}>
+                <StatusBar style="auto" />
+
+                {/* Scores and sets */}
+                <View style={{ ...styles.set, ...{ 'left': '37%' } }}>
+                    <Text style={styles.text}>{tie0}</Text>
+                </View>
+                <View style={{ ...styles.set, ...{ 'right': '37%' } }}>
+                    <Text style={styles.text}>{tie1}</Text>
+                </View>
+
+                {/* Win buttons */}
+                <Pressable style={{ ...styles.winBtn, ...{ 'left': '5%' } }} onPress={() => setTie0(tie0 + 1)}>
+                    <Text style={styles.text}>Win</Text>
+                </Pressable>
+                <Pressable style={{ ...styles.winBtn, ...{ 'right': '5%' } }} onPress={() => setTie1(tie1 + 1)}>
+                    <Text style={styles.text}>Win</Text>
+                </Pressable>
+
+                {/* Reset button */}
+                <Pressable style={styles.btn} onPress={() => resetAndRollBack()}>
+                    <Text style={styles.text}>Reset</Text>
+                </Pressable>
+            </View>
     )
 }
 

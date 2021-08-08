@@ -11,7 +11,6 @@
     "commit": "cz"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.15.5",
     "expo": "^42.0.3",
     "expo-screen-orientation": "^3.2.1",
     "expo-status-bar": "~1.0.4",
