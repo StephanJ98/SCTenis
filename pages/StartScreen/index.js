@@ -7,7 +7,6 @@ export default function StartScreen() {
   return (
     <View style={styles.container}>
       <Image source={logo} style={{width: '50%', height: '50%', resizeMode: 'center'}}/>
-      <Text style={{color: 'red', fontWeight: '900', fontSize: 25}}>SCTenis</Text>
       <StatusBar style="auto" />
     </View>
   );

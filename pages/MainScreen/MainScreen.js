@@ -29,7 +29,7 @@ export default function MainScreen() {
     useEffect(() => {
         if (set0 == 2 && set1 == 2) {
             Alert.alert(
-                'TieBreak Escoces',
+                'TieBreak Escocés',
                 '',
                 [
                     { text: 'OK', onPress: () => setShowTiebreak(false) }
