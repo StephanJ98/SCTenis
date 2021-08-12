@@ -9,6 +9,7 @@ npm-debug.*
 *.orig.*
 web-build/
 emulator.bat
+eas.json
 
 # macOS
 .DS_Store
