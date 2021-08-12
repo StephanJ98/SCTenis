@@ -100,7 +100,7 @@ export default function MainScreen() {
                     setSet0(set0 + 1)
                 } else if (score1 == 'Avantage') {
                     setScore1(40)
-                    setScore0('Avantage')
+                    setScore0('Par')
                 }
                 break;
             case 'Avantage':
@@ -142,7 +142,7 @@ export default function MainScreen() {
                     setSet1(set1 + 1)
                 } else if (score0 == 'Avantage') {
                     setScore0(40)
-                    setScore1('Avantage')
+                    setScore1('Par')
                 }
                 break;
             case 'Avantage':
