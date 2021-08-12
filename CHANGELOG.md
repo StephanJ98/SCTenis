@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/StephanJ98/SCTenis/compare/v2.0.0...v2.0.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* **mainscreen.js:** fix wrong Avantage Gameplay issue ([ed75692](https://github.com/StephanJ98/SCTenis/commit/ed756928ff992e2165e4d31f1fdd9693ab07b5df)), closes [#4](https://github.com/StephanJ98/SCTenis/issues/4)
+
 ## [2.0.0](https://github.com/StephanJ98/SCTenis/compare/v1.2.0...v2.0.0) (2021-08-08)
 
 ## [1.2.0](https://github.com/StephanJ98/SCTenis/compare/v1.1.0-alpha...v1.2.0) (2021-08-08)
