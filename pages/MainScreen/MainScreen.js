@@ -99,8 +99,8 @@ export default function MainScreen() {
                     setScore1(0)
                     setSet0(set0 + 1)
                 } else if (score1 == 'Avantage') {
-                    setScore1(40)
-                    setScore0('Par')
+                    setScore1('Par')
+                    setScore0(40)
                 }
                 break;
             case 'Avantage':
