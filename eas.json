@@ -3,7 +3,7 @@
     "release": {},
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "android": "apk"
     }
   }
 }
