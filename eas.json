@@ -3,7 +3,9 @@
     "release": {},
     "development": {
       "developmentClient": true,
-      "android": "apk"
+      "android": {
+        "buildType": "apk"
+      }
     }
   }
 }
